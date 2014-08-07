@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.asaltech.haseb.activities"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="8"
+        android:targetSdkVersion="21" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/panellogo"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name=".MainActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".DisplaySignupActivity"
+            android:label="@string/title_activity_display_signup" >
+        </activity>
+        <activity
+            android:name=".DisplayLoginActivity"
+            android:label="@string/title_activity_display_login" >
+        </activity>
+        <activity
+            android:name=".HomePage"
+            android:configChanges="keyboardHidden|orientation"
+            android:label="@string/title_activity_home_page" >
+        </activity>
+        <activity
+            android:name=".HomeActivity"
+            android:label="@string/title_activity_home" >
+        </activity>
+        <activity
+            android:name=".MyAccountActivity"
+            android:label="@string/title_activity_my_account" >
+        </activity>
+        <activity
+            android:name=".NotificationActivity"
+            android:label="@string/title_activity_notification" >
+        </activity>
+        <activity
+            android:name=".DoneSignup"
+            android:label="@string/title_activity_done_signup" >
+        </activity>
+        <activity
+            android:name=".EMainActivity"
+            android:label="@string/title_activity_emain" >
+        </activity>
+        <activity
+            android:name=".LoginActivity"
+            android:label="@string/title_activity_login" >
+        </activity>
+        <activity
+            android:name=".CreatGroup"
+            android:label="@string/title_activity_creat_group" >
+        </activity>
+    </application>
+
+</manifest>

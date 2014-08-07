@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">7asb </string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_display_signup">DisplaySignupActivity</string>
+    <string name="title_activity_display_login">DisplayLoginActivity</string>
+    <string name="title_activity_home_page">HomePage</string>
+    <string name="title_activity_home">HomeActivity</string>
+    <string name="title_activity_my_account">MyAccountActivity</string>
+    <string name="title_activity_notification">NotificationActivity</string>
+    <string name="title_activity_done_signup">DoneSignup</string>
+    <string name="url">http://192.168.2.105/7aseb/</string>
+    <string name="fisrtName">First Name</string>
+    <string name="lastName">Last Name</string>
+    <string name="phone">Phone</string>
+    <string name="email">Email</string>
+    <string name="pass">Password</string>
+    <string name="confirmpass">Confirm Password</string>
+    <string name="save">Save</string>
+     <string name="groupName">Group Name</string>
+      
+     <string name="curr ">Currency </string>
+      <string name="create ">Create</string>
+      <string name="signup ">Signup </string>
+      <string name="Login ">Login</string>
+      <string name="add ">Add</string>
+    <string name="extra">com.example.goerge.MESSAGE</string>
+
+    <string-array name="homeArray">
+        <item>Add Group</item>
+        <item>Delete Group</item>
+        <item>log out</item>
+    </string-array>
+
+    <string name="title_activity_emain">EMainActivity</string>
+    <string name="title_activity_login">LoginActivity</string>
+    <string name="title_activity_creat_group">CreatGroup</string>
+
+</resources>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">حاسب</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">الاعدادات</string>
+    <string name="title_activity_display_signup">انشاء حساب جديد</string>
+    <string name="title_activity_display_login">تسجيل الدخول</string>
+    <string name="title_activity_home_page">الصفحة الرئيسية</string>
+    <string name="title_activity_home">صفحة المستخدم</string>
+    <string name="title_activity_my_account">الاعدادات</string>
+    <string name="title_activity_notification">تنبيهات</string>
+    <string name="title_activity_done_signup">DoneSignup</string>
+    <string name="url">http://192.168.2.105/7aseb/</string>
+    <string name="fisrtName">الاسم الاول</string>
+    <string name="lastName">أسم الاب/العائلة</string>
+    <string name="phone">الهاتف</string>
+    <string name="email">البريد الالكتروني</string>
+    <string name="pass">كلمة السر</string>
+    <string name="confirmpass">تأكيد كلمة السر </string>
+    <string name="save">حفظ</string>
+     <string name="groupName">اسم المجموعة </string>
+     <string name="curr ">العملة </string>
+      <string name="create ">انشاء</string>
+      <string name="signup ">فتح حساب جديد </string>
+      <string name="Login ">تسجيل الدخول </string>
+      <string name="add ">اضافة</string>
+    <string name="extra">com.example.goerge.MESSAGE</string>
+
+    <string-array name="homeArray">
+        <item>Add Group</item>
+        <item>Delete Group</item>
+        <item>log out</item>
+    </string-array>
+
+    <string name="title_activity_emain">EMainActivity</string>
+    <string name="title_activity_login">LoginActivity</string>
+    <string name="title_activity_creat_group">CreatGroup</string>
+
+</resources>
