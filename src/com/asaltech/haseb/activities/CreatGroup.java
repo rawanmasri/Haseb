@@ -37,6 +37,7 @@ public class CreatGroup extends ActionBarActivity {
 	private SimpleAdapter simpleAdpt ;
 	private ListView lView;
     private EditText groupName;
+    
     private  EditText groupCurrency;
     
     private EditText groupMember;
