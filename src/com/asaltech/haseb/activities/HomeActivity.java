@@ -13,7 +13,7 @@ import android.view.View;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 
-import com.asaltech.haseb.activities.CreatGroup.addMember;
+import com.asaltech.haseb.activities.CreatGroupActivity.addMember;
 import com.asaltech.haseb.utils.JSONParser;
 import com.asaltech.haseb.utils.SharedPref;
 import com.example.bean.User;

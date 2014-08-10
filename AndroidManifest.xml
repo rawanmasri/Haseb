@@ -25,6 +25,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        
+         <activity
+            android:name=".AddFriendActivity"
+            android:label="@string/title_activity_display_signup" >
+        </activity>
         <activity
             android:name=".DisplaySignupActivity"
             android:label="@string/title_activity_display_signup" >
@@ -63,7 +68,7 @@
             android:label="@string/title_activity_login" >
         </activity>
         <activity
-            android:name=".CreatGroup"
+            android:name=".CreatGroupActivity"
             android:label="@string/title_activity_creat_group" >
         </activity>
     </application>

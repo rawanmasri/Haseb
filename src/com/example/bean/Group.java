@@ -5,14 +5,16 @@ import java.util.ArrayList;
 public class Group {
 
 	
-	public  int groupID ;
-	public  String name ;
-	public  String currency ;
-	public int userID ;
+	private  int groupID ;
+	private  String name ;
+	private  String currency ;
+	private int userID ;
 	private boolean isSuccess;
-	private int [] billsID =new int[40] ;
-	private ArrayList<Integer> friendID =new ArrayList<Integer>() ;
+	private ArrayList<Bill> billsID =new ArrayList<Bill>() ;
+	private ArrayList<User> friendID =new ArrayList<User>() ;
 	private String message;
+	
+	
 	public boolean isSuccess() {
 		return isSuccess;
 	}
@@ -23,10 +25,10 @@ public class Group {
 	public int getGroupId() {
 		return groupID;
 	}
-	public ArrayList<Integer> getFriendID() {
+	public ArrayList<User> getFriendID() {
 		return friendID;
 	}
-	public void setFriendID(ArrayList<Integer> friendID) {
+	public void setFriendID(ArrayList<User> friendID) {
 		this.friendID = friendID;
 	}
 	public void setGroupId(int groupId) {
@@ -50,10 +52,10 @@ public class Group {
 	public void setUserId(int userId) {
 		this.userID = userId;
 	}
-	public int[] getBillsID() {
+	public  ArrayList<Bill> getBillsID() {
 		return billsID;
 	}
-	public void setBillsID(int[] billsID) {
+	public void setBillsID( ArrayList<Bill>billsID) {
 		this.billsID = billsID;
 	}
 	public String getMessage() {
@@ -62,14 +64,12 @@ public class Group {
 	public void setMessage(String message) {
 		this.message = message;
 	}
-	public Group(int groupId, String name, String currency,int userId,
-			int[] billsID,ArrayList<Integer> friendID ) {
+	public Group(String name, String currency,int userId,
+			 ArrayList<User> friendID ) {
 		super();
-		this.groupID = groupId;
 		this.name = name;
 		this.currency = currency;
 		this.userID = userId;
-		this.billsID = billsID;
 		this.friendID = friendID;
 		
 	}

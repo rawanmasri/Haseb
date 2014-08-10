@@ -43,7 +43,7 @@ public class MyAccountActivity extends Activity {
 					 switch( position )
 				    {
 				       
-				       case 1:  intent = new Intent(getApplicationContext(),CreatGroup.class);
+				       case 1:  intent = new Intent(getApplicationContext(),CreatGroupActivity.class);
 				     	startActivity(intent);     		           
 				    	       break;
 				       
