@@ -8,8 +8,6 @@ import android.widget.TabHost;
 import android.widget.TabHost.TabSpec;
 @SuppressWarnings("deprecation")
 public class HomePage extends TabActivity {
-	// TabSpec Names
-	Bundle userData;
 	public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_page);
