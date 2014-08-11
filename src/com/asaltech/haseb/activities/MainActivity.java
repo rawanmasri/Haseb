@@ -1,32 +1,21 @@
 package com.asaltech.haseb.activities;
-
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
 import com.asaltech.haseb.activities.R;
-import com.asaltech.haseb.activities.DisplayLoginActivity.loginAccountUser;
 import com.asaltech.haseb.utils.JSONParser;
 import com.asaltech.haseb.utils.SharedPref;
 import com.example.bean.Auth;
 import com.example.bean.User;
 import com.google.gson.Gson;
-
 import android.support.v7.app.ActionBarActivity;
 import android.app.ProgressDialog;
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-
-
 public class MainActivity extends ActionBarActivity {
 	private ProgressDialog pDialog;
 	private JSONParser jsonParser;
@@ -64,14 +53,6 @@ public class MainActivity extends ActionBarActivity {
              }
          });
 
-    }
-
-    
-   
-
-   
-    private void loginAccount(View view) {
-    	//new openUserAccount().execute();
     }
     //Check if the Email valid 
     private static boolean isEmailValid(String email) {
