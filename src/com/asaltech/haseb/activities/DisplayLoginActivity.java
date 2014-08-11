@@ -38,11 +38,11 @@ public class DisplayLoginActivity extends ActionBarActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_display_login);
 
-	/*	if (SharedPref.getInstance(getApplicationContext()).isLoggedIn()) {
+		if (SharedPref.getInstance(getApplicationContext()).isLoggedIn()) {
 			Intent intent = new Intent(this, HomePage.class);
 			startActivity(intent);
 			this.finish();
-		}*/
+		}
 
 		url_login_account = "http://192.168.43.105/7aseb/login";
 		extra_message = getString(R.string.extra);
