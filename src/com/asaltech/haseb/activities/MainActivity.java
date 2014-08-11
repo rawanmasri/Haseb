@@ -22,11 +22,11 @@ public class MainActivity extends ActionBarActivity {
         setContentView(R.layout.activity_main);
         
        
-        /*if(SharedPref.getInstance(getApplicationContext()).isLoggedIn()) {
+        if(SharedPref.getInstance(getApplicationContext()).isLoggedIn()) {
     		Intent intent = new Intent(this, HomePage.class);
         	startActivity(intent);
         	this.finish();
-    	}*/
+    	}
     }
 
 

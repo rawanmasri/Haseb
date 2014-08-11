@@ -44,11 +44,11 @@ public class DisplaySignupActivity extends ActionBarActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_display_signup);
 
-	/*	if (SharedPref.getInstance(getApplicationContext()).isLoggedIn()) {
+	if (SharedPref.getInstance(getApplicationContext()).isLoggedIn()) {
 			Intent intent = new Intent(this, HomePage.class);
 			startActivity(intent);
 			this.finish();
-		}*/
+		}
 
 		url_create_account = "http://192.168.43.105/7aseb/signup";
 		extra_message = getString(R.string.extra);
