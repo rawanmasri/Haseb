@@ -87,7 +87,7 @@ public class User  implements Serializable{
 	}
 	public User(){}
 	public User(  String first_name, String last_name, String email,
-			String password, String picture, int secondery_pool,
+			String password, String picture,
 			String phone) {
 		super();
 		this.firstName = first_name;
@@ -95,7 +95,6 @@ public class User  implements Serializable{
 		this.email = email;
 		this.password = password;
 		this.picture = picture;
-		this.isVirtual = secondery_pool;
 		this.phone = phone;
 		isSuccess=false;
 		

@@ -103,10 +103,10 @@ public class AddFriendActivity extends Activity{
 			
 			//  userMember = gsonObject.fromJson(memberNames, ArrayList.class);
 			User test=new User("Rawan", "Masri", "RawanEmail", "RawanPass", " h",
-					0, "RawanPhone");
+					 "RawanPhone");
 			userMember.add(test);
 			User test2=new User("Reem", "sal3os", "ReemEmail", "ReemPass", " hh",
-					0, "ReemPhone");
+					 "ReemPhone");
 			userMember.add(test2);
 
 			if (!userMember.isEmpty()) {
