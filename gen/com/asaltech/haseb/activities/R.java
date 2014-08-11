@@ -1112,8 +1112,8 @@ containing a value of this type.
         public static final int addFakeUser=0x7f050050;
         public static final int always=0x7f05000b;
         public static final int beginning=0x7f050011;
-        public static final int button1=0x7f050044;
-        public static final int button2=0x7f050043;
+        public static final int button1=0x7f050043;
+        public static final int button2=0x7f050044;
         public static final int checkbox=0x7f05002d;
         public static final int collapseActionView=0x7f05000d;
         public static final int default_activity_button=0x7f050028;

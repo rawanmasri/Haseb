@@ -20,7 +20,7 @@ public class HomePage extends TabActivity {
              homespec.setContent(homeIntent);
              TabSpec settingspec = tabHost.newTabSpec("Setting");       
              settingspec.setIndicator("Setting", getResources().getDrawable(R.drawable.settingxml));
-             Intent settingIntent = new Intent(this, MyAccountActivity.class);
+             Intent settingIntent = new Intent(this,AddFriendActivity.class);
              settingspec.setContent(settingIntent);
         	 tabHost.addTab(homespec); 
              tabHost.addTab(settingspec);
