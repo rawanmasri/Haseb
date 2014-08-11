@@ -1233,19 +1233,18 @@ containing a value of this type.
         public static final int abc_simple_decor=0x7f030017;
         public static final int activity_add_friend=0x7f030018;
         public static final int activity_creat_group=0x7f030019;
-        public static final int activity_display_login=0x7f03001a;
-        public static final int activity_display_signup=0x7f03001b;
-        public static final int activity_home=0x7f03001c;
-        public static final int activity_home_page=0x7f03001d;
-        public static final int activity_login=0x7f03001e;
-        public static final int activity_main=0x7f03001f;
-        public static final int activity_my_account=0x7f030020;
-        public static final int activity_notification=0x7f030021;
-        public static final int p=0x7f030022;
-        public static final int row_fake_item=0x7f030023;
-        public static final int row_search_empty_item=0x7f030024;
-        public static final int row_search_item=0x7f030025;
-        public static final int support_simple_spinner_dropdown_item=0x7f030026;
+        public static final int activity_display_signup=0x7f03001a;
+        public static final int activity_home=0x7f03001b;
+        public static final int activity_home_page=0x7f03001c;
+        public static final int activity_login=0x7f03001d;
+        public static final int activity_main=0x7f03001e;
+        public static final int activity_my_account=0x7f03001f;
+        public static final int activity_notification=0x7f030020;
+        public static final int p=0x7f030021;
+        public static final int row_fake_item=0x7f030022;
+        public static final int row_search_empty_item=0x7f030023;
+        public static final int row_search_item=0x7f030024;
+        public static final int support_simple_spinner_dropdown_item=0x7f030025;
     }
     public static final class menu {
         public static final int creat_group=0x7f0d0000;
