@@ -23,7 +23,7 @@ import android.widget.SimpleAdapter;
 import android.widget.Toast;
 public class CreatGroupActivity extends ActionBarActivity {
 	private ProgressDialog pDialog;
-	private JSONParser jsonParser;
+	//private JSONParser jsonParser;
 	private List<Map<String, String>> adaptList;
 	private SimpleAdapter simpleAdpt;
 	private ListView lView;
@@ -49,7 +49,7 @@ public class CreatGroupActivity extends ActionBarActivity {
             	new createGroup().execute();
             }
         });
-		jsonParser = new JSONParser();
+		//jsonParser = new JSONParser();
 		adaptList = new ArrayList<Map<String, String>>();
 		user = (new Gson()).fromJson(SharedPref.getInstance(getApplicationContext()).getUser(),
 				User.class);
@@ -59,7 +59,7 @@ public class CreatGroupActivity extends ActionBarActivity {
 				new String[] { "setting" }, new int[] { android.R.id.text1 });	
 		lView.setAdapter(simpleAdpt);
 		friendlist = new ArrayList<User>();
-		url_create_group = "http://192.168.43.105/7aseb/createGroup";
+		url_create_group = "http://192.168.43.160/7aseb/public/groups/create";
 		groupName = (EditText) findViewById(R.id.editText1);
 		groupCurrency = (EditText) findViewById(R.id.editText2);
 
@@ -83,12 +83,15 @@ public class CreatGroupActivity extends ActionBarActivity {
 				Group group = new Group(groupname, groupcurrency,user.getId(), friendlist);								
 				Gson gsonObject = new Gson();
 				String data = gsonObject.toJson(group);
-				String json = jsonParser.makeHttpRequest(url_create_group,"POST", data, user.getApiKey());					
+				String json =  JSONParser.getInstance().makeHttpRequest(url_create_group,"POST", data, user.getRemember_token());					
 				group = gsonObject.fromJson(json, Group.class);
 				isSuccess = group.isSuccess();
 				if (isSuccess) {
 					// successfully created Group
-					Intent i = new Intent(getApplicationContext(),HomePage.class);						
+					//user.setGroups(group);
+					data = gsonObject.toJson(user);
+					SharedPref.getInstance(getApplicationContext()).setUser(data);
+					Intent i = new Intent(getApplicationContext(),HomePage.class);		
 					startActivity(i);
 					finish();
 					// closing this screen
@@ -129,7 +132,7 @@ public class CreatGroupActivity extends ActionBarActivity {
 	        if(resultCode == RESULT_OK){
 	            User userMember=(User) data.getSerializableExtra("result");
 	            friendlist.add(userMember);
-	            adaptList.add(createPlanet("setting", userMember.getFirst_name()+" "+userMember.getLast_name()));
+	            adaptList.add(createPlanet("setting", userMember.getFirstName()+" "+userMember.getLastName()));
 				simpleAdpt.notifyDataSetChanged();            
 	            
 	        } else if (resultCode == RESULT_CANCELED) {

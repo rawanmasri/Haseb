@@ -36,3 +36,5 @@ Icon
 .Trashes
 
 bin/*
+src/com/asaltech/haseb/activities/MyAccountActivity.java
+*.java

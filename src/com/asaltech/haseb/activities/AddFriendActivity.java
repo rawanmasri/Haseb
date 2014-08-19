@@ -1,6 +1,8 @@
 package com.asaltech.haseb.activities;
 
+import java.lang.reflect.Type;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 import com.asaltech.haseb.activities.adapter.SearchAdapter;
@@ -8,9 +10,11 @@ import com.asaltech.haseb.utils.JSONParser;
 import com.asaltech.haseb.utils.SharedPref;
 import com.example.bean.User;
 import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.database.Cursor;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
@@ -23,17 +27,15 @@ import android.widget.SimpleAdapter;
 import android.widget.Toast;
 import android.widget.AdapterView.OnItemClickListener;
 
-public class AddFriendActivity extends Activity{
-	
+public class AddFriendActivity extends Activity{	
 	private Button searchBtn; 
 	private EditText searchInput;
 	private ListView searchList;
 	private SimpleAdapter searchAdapter;
 	private String url_add_member;
 	private User user;
-	List<User> userMember;
-	private JSONParser jsonParser = new JSONParser();
-	
+	private List<User> userMember;
+	//private JSONParser jsonParser;
 	private String [] resultList = {};
 	
 	private SearchAdapter adapter;
@@ -41,35 +43,31 @@ public class AddFriendActivity extends Activity{
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_add_friend);
-		
-		init();
-		
+		setContentView(R.layout.activity_add_friend);	
+		init();	
 	}
 	
 	private void init() {
 		 userMember=new ArrayList<User>();
+		 userMember.add(null);
+		// jsonParser = new JSONParser();
 		user = (new Gson()).fromJson(
 				SharedPref.getInstance(getApplicationContext()).getUser(),
 				User.class);
 		searchBtn = (Button) findViewById(R.id.searchBtn);
-		url_add_member = "http://192.168.43.105/7aseb/addmember";
+		url_add_member = "http://192.168.43.160/7aseb/public/users";
 		searchInput = (EditText) findViewById(R.id.searchInput);
 		searchList = (ListView) findViewById(R.id.searchList);
-		adapter = new SearchAdapter(this, android.R.layout.list_content, resultList);
+		adapter = new SearchAdapter(this, android.R.layout.list_content, userMember );
 		searchList.setAdapter(adapter);
 		
 		searchBtn.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
 				
-				new addMember().execute();
-				//resultList = new String[2];
-				//resultList[0] = "hay";
-				//resultList[1] = "I wana smoke";
-				
-			//	adapter = new SearchAdapter(getApplicationContext(), android.R.layout.list_content, resultList);
-				// searchList.setAdapter(adapter);
+					new addMember().execute();
+					
+		
 			}
 		});
 		
@@ -81,55 +79,58 @@ public class AddFriendActivity extends Activity{
 					Intent returnIntent = new Intent();
 					returnIntent.putExtra("result",userMember.get( position));
 					setResult(RESULT_OK,returnIntent);
-					finish();
-					
-					
+					finish();					
 				}
-				 
-
-				 });
-		
-		
+				 });	
 	}
+	
+/*	public void Test(){
+		
+		User test=new User("Rawan", "Masri", "RawanEmail", "RawanPass", " h",
+				 "RawanPhone");
+		 userMember.add(test);
+		 User test2=new User("Reem", "sal3os", "ReemEmail", "ReemPass", " hh",
+				 "ReemPhone");
+		userMember.add(test2);
+
+		if (!userMember.isEmpty()) {
+			String te=userMember.get(0).getFirstName();
+			adapter = new SearchAdapter(getApplicationContext(), android.R.layout.list_content, userMember);
+				searchList.setAdapter(adapter);}
+		
+	}*/
 	class addMember extends AsyncTask<String, String, String> {
-
+		
 		@Override
-		protected String doInBackground(String... params) {
-			// TODO Auto-generated method stub
+		protected String  doInBackground(String... params) {
 			Gson gsonObject = new Gson();
-			//String memberNames = jsonParser.makeHttpRequest(url_add_member, "GET",
-				//	searchInput.getText().toString(), user.getApiKey());
+			userMember.clear();
+			String memberNames =  JSONParser.getInstance().makeHttpRequest(url_add_member, "GET",
+					searchInput.getText().toString(), user.getRemember_token());
 			
 			
-			//  userMember = gsonObject.fromJson(memberNames, ArrayList.class);
-			User test=new User("Rawan", "Masri", "RawanEmail", "RawanPass", " h",
+		 userMember.addAll((Collection<? extends User>) gsonObject.fromJson(memberNames, new TypeToken<List<User>>() {}.getType()));
+		 
+		/* User test=new User("Rawan", "Masri", "RawanEmail", "RawanPass", " h",
 					 "RawanPhone");
-			userMember.add(test);
-			User test2=new User("Reem", "sal3os", "ReemEmail", "ReemPass", " hh",
-					 "ReemPhone");
-			userMember.add(test2);
-
+			 userMember.add(test);
+			 User test2=new User("Reem", "sal3os", "ReemEmail", "ReemPass", " hh",
+					 "ReemPhone");*/
+			//userMember.add(test2);
+			//y=userMember.size();
+			
+		 String returnStr = null;
 			if (!userMember.isEmpty()) {
-				final String[] separatedNames =new String[userMember.size()];
-				 for(int index=0;index<separatedNames.length;index++){
-					 separatedNames[index]=userMember.get(index).getFirst_name()+" "+userMember.get(index).getLast_name() ;
-					 
-				 }
-				
-				runOnUiThread(new Runnable() {
-					@Override
-					public void run() {
-						adapter = new SearchAdapter(getApplicationContext(), android.R.layout.list_content, separatedNames);
-						searchList.setAdapter(adapter);
-						 
-					
-					
-					}
-				});
-				
+				returnStr ="";
 			}
-			else {
-
+		
+			userMember.add(null);
+			return returnStr;
+		}
+		
+		@Override
+		protected void onPostExecute(String result) {
+			if(result == null) {
 				runOnUiThread(new Runnable() {
 					@Override
 					public void run() {
@@ -138,9 +139,12 @@ public class AddFriendActivity extends Activity{
 								.show();
 					}
 				});
-
+			} else {
+				adapter.notifyDataSetChanged();
 			}
-			return null;
-		}}
+			
+		}	
+	
+	}
 	
 }

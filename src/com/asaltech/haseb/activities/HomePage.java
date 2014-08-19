@@ -8,6 +8,8 @@ import android.widget.TabHost;
 import android.widget.TabHost.TabSpec;
 @SuppressWarnings("deprecation")
 public class HomePage extends TabActivity {
+	// TabSpec Names
+	Bundle userData;
 	public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_page);
@@ -20,7 +22,7 @@ public class HomePage extends TabActivity {
              homespec.setContent(homeIntent);
              TabSpec settingspec = tabHost.newTabSpec("Setting");       
              settingspec.setIndicator("Setting", getResources().getDrawable(R.drawable.settingxml));
-             Intent settingIntent = new Intent(this,AddFriendActivity.class);
+             Intent settingIntent = new Intent(this,MyAccountActivity.class);
              settingspec.setContent(settingIntent);
         	 tabHost.addTab(homespec); 
              tabHost.addTab(settingspec);

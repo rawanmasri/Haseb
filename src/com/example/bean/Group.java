@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class Group {
 
 	
-	private  int groupID ;
+	private  int id ;
 	private  String name ;
 	private  String currency ;
 	private int userID ;
@@ -23,7 +23,7 @@ public class Group {
 	}
 	
 	public int getGroupId() {
-		return groupID;
+		return id;
 	}
 	public ArrayList<User> getFriendID() {
 		return friendID;
@@ -32,7 +32,7 @@ public class Group {
 		this.friendID = friendID;
 	}
 	public void setGroupId(int groupId) {
-		this.groupID = groupId;
+		this.id = groupId;
 	}
 	public String getName() {
 		return name;
@@ -73,6 +73,16 @@ public class Group {
 		this.friendID = friendID;
 		
 	}
+	public Group(String name, String currency,int userId
+			 ) {
+		super();
+		this.name = name;
+		this.currency = currency;
+		this.userID = userId;
+		
+		
+	}
+	
 	
 	
 	

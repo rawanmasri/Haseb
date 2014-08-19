@@ -1,12 +1,17 @@
 package com.asaltech.haseb.activities;
+import java.lang.reflect.Type;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
 import com.asaltech.haseb.activities.R;
 import com.asaltech.haseb.utils.JSONParser;
 import com.asaltech.haseb.utils.SharedPref;
 import com.example.bean.Auth;
+import com.example.bean.Group;
 import com.example.bean.User;
 import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+
 import android.support.v7.app.ActionBarActivity;
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -18,7 +23,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 public class MainActivity extends ActionBarActivity {
 	private ProgressDialog pDialog;
-	private JSONParser jsonParser;
+	//private JSONParser jsonParser;
 	private EditText eMail;
 	private EditText password;
 	private String loginUrl;
@@ -26,14 +31,16 @@ public class MainActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+                
+        
         //Checking login 
-        if(SharedPref.getInstance(getApplicationContext()).isLoggedIn()) {
+     /*   if(SharedPref.getInstance(getApplicationContext()).isLoggedIn()) {
     		Intent intent = new Intent(this, HomePage.class);
         	startActivity(intent);
         	this.finish();
-    	}
-        jsonParser= new JSONParser();
-        loginUrl = "http://192.168.43.105/7aseb/login";
+    	}*/
+       // jsonParser= new JSONParser();
+        loginUrl = "http://192.168.43.160/7aseb/public/users/login";
 		eMail = (EditText) findViewById(R.id.editText1);
 		password = (EditText) findViewById(R.id.editText2);
 	   final Button loginButton = (Button) findViewById(R.id.button1);
@@ -45,7 +52,7 @@ public class MainActivity extends ActionBarActivity {
            }
        });
 
-		// if you want to create a new account 
+	   // if you want to create a new account 
 		 sginupButton.setOnClickListener(new View.OnClickListener() {
              public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), DisplaySignupActivity.class);
@@ -90,8 +97,16 @@ public class MainActivity extends ActionBarActivity {
 					Auth auth = new Auth(email, pass);
 					Gson g = new Gson();
 					String data = g.toJson(auth);
-					String json = jsonParser.makeHttpRequest(loginUrl,"POST", data, null);					
-					User user = g.fromJson(json, User.class);					
+					String json =  JSONParser.getInstance().makeHttpRequest(loginUrl,"POST", data, null);	
+					
+					Type listType = new TypeToken<User>() {}.getType();
+					User user = g.fromJson(json, listType);	
+					
+					//int in = user.getGroupName().size();
+					//User ahmad=new User("e","r","t","y","u","h");
+					//Group group=new Group("g","h",1);
+					//ahmad.setGroups(group);
+				    
 					isSuccess = user.isSuccess();
 					// successfully open the account
 					if (isSuccess) { 

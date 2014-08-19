@@ -1,6 +1,10 @@
 package com.example.bean;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+
+import com.google.gson.Gson;
 
 public class User  implements Serializable{
 	
@@ -11,81 +15,130 @@ public class User  implements Serializable{
 	private String picture;
 	private int isVirtual;
 	private String phone;
-	private String apiKey;
-	private int userID;
+	private String remember_token;
+	private String created_at;
+	private String updated_at;
+	private int id;
 	private boolean isSuccess;
-	private int [] groupsID =new int[40] ;
-	private String message;
-	
-	public String getApiKey() {
-		return apiKey;
-	}
-	public void setApiKey(String apiKey) {
-		this.apiKey = apiKey;
-	}
-	public int[] getGroupsID() {
-		return groupsID;
-	}
-	public void setGroupsID(int[] groupsID) {
-		this.groupsID = groupsID;
-	}
-	public String getMessage() {
-		return message;
-	}
-	public void setMessage(String message) {
-		this.message = message;
-	}
+	private List<Group> groupObject;
 	
 	
-	public String getFirst_name() {
+	
+	public List<Group> getGroupObject() {
+		return groupObject;
+	}
+
+	public void setGroupObject(List<Group> groupObject) {
+		this.groupObject = groupObject;
+	}
+
+	public String getFirstName() {
 		return firstName;
 	}
-	public void setFirst_name(String first_name) {
-		this.firstName = first_name;
+
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
 	}
-	public String getLast_name() {
+
+	public String getLastName() {
 		return lastName;
 	}
-	public void setLast_name(String last_name) {
-		this.lastName = last_name;
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
 	}
+
 	public String getEmail() {
 		return email;
 	}
+
 	public void setEmail(String email) {
 		this.email = email;
 	}
+
 	public String getPassword() {
 		return password;
 	}
+
 	public void setPassword(String password) {
 		this.password = password;
 	}
+
 	public String getPicture() {
 		return picture;
 	}
+
 	public void setPicture(String picture) {
 		this.picture = picture;
 	}
-	public int getSecondery_pool() {
+
+	public int getIsVirtual() {
 		return isVirtual;
 	}
-	public void setSecondery_pool(int secondery_pool) {
-		this.isVirtual = secondery_pool;
+
+	public void setIsVirtual(int isVirtual) {
+		this.isVirtual = isVirtual;
 	}
+
 	public String getPhone() {
 		return phone;
 	}
+
 	public void setPhone(String phone) {
 		this.phone = phone;
 	}
+
+	public String getRemember_token() {
+		return remember_token;
+	}
+
+	public void setRemember_token(String remember_token) {
+		this.remember_token = remember_token;
+	}
+
+	public String getCreated_at() {
+		return created_at;
+	}
+
+	public void setCreated_at(String created_at) {
+		this.created_at = created_at;
+	}
+
+	public String getUpdated_at() {
+		return updated_at;
+	}
+
+	public void setUpdated_at(String updated_at) {
+		this.updated_at = updated_at;
+	}
+
 	public int getId() {
-		return userID;
+		return id;
 	}
+
 	public void setId(int id) {
-		this.userID = id;
+		this.id = id;
 	}
-	public User(){}
+
+	public boolean isSuccess() {
+		return isSuccess;
+	}
+
+	public void setSuccess(boolean isSuccess) {
+		this.isSuccess = isSuccess;
+	}
+
+	
+
+	
+
+	
+	
+	public User(){
+		this.groupObject =new ArrayList<Group>() ;
+		
+	}
+	
 	public User(  String first_name, String last_name, String email,
 			String password, String picture,
 			String phone) {
@@ -96,18 +149,17 @@ public class User  implements Serializable{
 		this.password = password;
 		this.picture = picture;
 		this.phone = phone;
-		isSuccess=false;
+		this.isSuccess=false;
+		this.groupObject =new ArrayList<Group>() ;
 		
-		
-		
-	}
-	public boolean isSuccess() {
-		return isSuccess;
-	}
-	public void setSuccess(boolean isSuccess) {
-		this.isSuccess = isSuccess;
 	}
 	
+	@Override
+	public String toString() {
+		return this.firstName + " " + this.lastName;
+	}
+	
+
 	
 	
 }

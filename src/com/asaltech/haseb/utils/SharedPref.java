@@ -38,7 +38,19 @@ public class SharedPref {
 		String user = prefs.getString("user", "{}");
 		return user;
 	}
-	
+	public void setGroup(String user) {
+		prefs = context.getSharedPreferences(
+			      "com.example.app", Context.MODE_PRIVATE);	
+		Editor editor = prefs.edit();
+		editor.putString("group", user);
+		editor.commit();	
+	}
+	public String getGroup() {
+		prefs = context.getSharedPreferences(
+			      "com.example.app", Context.MODE_PRIVATE);
+		String group = prefs.getString("group", "{}");
+		return group;
+	}
 	public boolean isLoggedIn() {
 		prefs = context.getSharedPreferences(
 			      "com.example.app", Context.MODE_PRIVATE);
